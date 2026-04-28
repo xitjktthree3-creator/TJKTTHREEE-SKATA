@@ -1,0 +1,461 @@
+/* --- CSS VARIABLES & RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #00b4db, #00d2ff, #11998e, #38ef7d);
+    --primary-blue: #0083b0;
+    --primary-green: #11998e;
+    --dark-text: #2d3436;
+    --light-bg: #f9fbfb;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+/* --- HEADER & LOGO --- */
+header {
+    background: var(--bg-gradient);
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
+    color: var(--white);
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+}
+
+.header-title h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-text);
+    margin: 5px 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-green);
+}
+
+/* --- CONTAINER & SECTIONS --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    position: relative;
+    color: var(--primary-blue);
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-green);
+    margin: 10px auto;
+}
+
+/* --- CARDS --- */
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.grad-box {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    color: white;
+}
+
+/* --- GRID SISWA & GALERI --- */
+.grid-siswa {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.siswa-card {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    border-bottom: 4px solid var(--primary-blue);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    transform: translateY(-10px);
+}
+
+/* --- TABLES --- */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th {
+    background: var(--primary-blue);
+    color: white;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- PIKET & INFO --- */
+.piket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.piket-day {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.info-banner {
+    background: #fff3cd;
+    color: #856404;
+    padding: 20px;
+    border-left: 10px solid #ffeeba;
+    border-radius: 10px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #2d3436;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #38ef7d;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* --- RESPONSIVE (Handphone) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        padding: 15px;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-title h1 {
+        font-size: 1.2rem;
+    }
+
+    nav a {
+        margin: 5px 8px;
+        font-size: 0.85rem;
+    }
+
+    .grid-siswa {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* --- STRUKTUR ORGANISASI STYLES --- */
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+/* Membuat Wali Kelas tampil lebih besar atau di tengah */
+.card-member.leader {
+    grid-column: 1 / -1; /* Mengambil seluruh baris */
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    border: 2px solid var(--primary-green);
+}
+
+.card-member {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-member:hover {
+    transform: translateY(-10px);
+}
+
+.member-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 4px solid var(--light-bg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info h3 {
+    font-size: 1.2rem;
+    color: var(--dark-text);
+    margin-bottom: 5px;
+}
+
+.member-info .role {
+    display: inline-block;
+    background: var(--bg-gradient);
+    color: white;
+    padding: 3px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.member-info .task {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsif untuk HP agar Wali Kelas tidak terlalu lebar */
+@media (max-width: 768px) {
+    .card-member.leader {
+        grid-column: auto;
+    }
+}
+/* Container Siswa: Kunci 4 Kolom */
+.grid-siswa-tetap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom sama rata */
+    gap: 8px; /* Jarak antar kartu */
+    padding: 15px 0;
+}
+
+/* Card Siswa */
+.card-profile-kecil {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 5px;
+    text-align: center; /* Teks ke tengah */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Konten ke tengah */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+/* Foto Siswa */
+.card-profile-kecil img {
+    width: 50px; /* Ukuran pas untuk 4 kolom di HP */
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border: 2px solid #11998e;
+}
+
+/* Nama Siswa */
+.card-profile-kecil h4 {
+    font-size: 0.65rem; /* Font kecil agar tidak berantakan di HP */
+    color: #333;
+    margin: 0;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Maksimal 2 baris nama */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsif Layar Besar (Desktop) */
+@media (min-width: 768px) {
+    .grid-siswa-tetap {
+        gap: 20px;
+    }
+    .card-profile-kecil img {
+        width: 100px;
+        height: 100px;
+    }
+    .card-profile-kecil h4 {
+        font-size: 0.9rem;
+    }
+}
+/* Styling Section Piket */
+#piket {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Background lembut */
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+#piket h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.piket-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.piket-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* Efek blur kaca */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+.piket-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.piket-header {
+    background: #4a90e2; /* Ubah warna sesuai tema kelasmu */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.piket-list {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.piket-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.piket-list li:last-child {
+    border-bottom: none;
+}
+
+/* Variasi Warna Header Per Hari (Opsional agar lebih ceria) */
+.piket-card:nth-child(1) .piket-header { background: #25cfdb; } /* Senin - Merah */
+.piket-card:nth-child(2) .piket-header { background: #f39c12; } /* Selasa - Oranye */
+.piket-card:nth-child(3) .piket-header { background: #2ecc71; } /* Rabu - Hijau */
+.piket-card:nth-child(4) .piket-header { background: #9b59b6; } /* Kamis - Ungu */
+.piket-card:nth-child(5) .piket-header { background: #1abc9c; } /* Jumat - Toska */
+.piket-card:nth-child(6) .piket-header { background: #34495e; } /* Sabtu - Biru Gelap */
